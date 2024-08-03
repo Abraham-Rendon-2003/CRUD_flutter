@@ -1,0 +1,20 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - flutter pub get
+        build:
+          commands:
+            - flutter build web
+        postBuild:
+          commands:
+            - echo "Build completed"
+      artifacts:
+        baseDirectory: build/web
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - 'build/**'
